@@ -5,14 +5,9 @@ alphabetical_ratings = {}
 
 filename = sys.argv[1]
 for lines in open(filename):
-    #lines_clean = lines.rstrip()
-    words = lines.split('\n')
+    lines_clean = lines.rstrip()
+    words = lines_clean.split(':')
+    alphabetical_ratings[words[0]] = words[1]
 
-
-    #strip by line
-    #split by colon
-    #move to dictionary
-
-
-    for word in words:
-        print word
+for restaurant, rating in sorted(alphabetical_ratings.items()):
+    print "{} is rated at {}.".format(restaurant, rating)
